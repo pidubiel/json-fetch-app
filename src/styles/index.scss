@@ -38,6 +38,7 @@ textarea {
   &__element {
     a {
       padding: 15px 25px;
+      display: block;
       border: 3px solid #fff;
       margin: 20px;
       border-radius: 5px;
@@ -45,11 +46,19 @@ textarea {
       letter-spacing: 2px;
     }
   }
+  @media screen and (max-width: 550px) {
+    &__list {
+      flex-direction: column;
+    }
+  }
 }
 
 .main-container {
   max-width: 1200px;
   margin: 20px auto;
+  @media screen and (max-width: 1200px) {
+    padding: 0 10px;
+  }
 }
 
 .articles {
