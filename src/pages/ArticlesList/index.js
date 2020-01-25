@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ArticlesContext } from '../../contexts/ArticlesContext.js';
+import SingleArticle from './SingleArticle';
 import axios from 'axios';
 
 const ArticlesList = () => {
-  const [articles, setArticles] = useContext(ArticlesContext);
+  const [articles, setArticles, removeArticle] = useContext(ArticlesContext);
   const [error, setError] = useState(null);
   const fetchArticles = () => {
     axios
@@ -16,7 +17,6 @@ const ArticlesList = () => {
   useEffect(() => {
     if (articles.length == 0) {
       fetchArticles();
-      console.log('fetching');
     }
   }, []);
   return (
@@ -26,16 +26,7 @@ const ArticlesList = () => {
       </Link>
       <div className='articles'>
         {error && <p>{error.message}</p>}
-        {!error &&
-          articles &&
-          articles.length > 0 &&
-          articles.map(el => (
-            <div className='articles__item' key={el.id}>
-              <h1>{el.title}</h1>
-              <p>{el.body}</p>
-              <button className='articles__btn'>Remove article</button>
-            </div>
-          ))}
+        {!error && articles && articles.length > 0 && articles.map(el => <SingleArticle key={el.id} id={el.id} title={el.title} body={el.body} />)}
       </div>
     </div>
   );

@@ -8,7 +8,10 @@ const ArticlesContextProvider = ({ children }) => {
   const addArticle = (title, body) => {
     setArticles([...articles, { title, body }]);
   };
+  const removeArticle = id => {
+    setArticles(articles.filter(article => article.id !== id));
+  };
 
-  return <ArticlesContext.Provider value={[articles, setArticles]}>{children}</ArticlesContext.Provider>;
+  return <ArticlesContext.Provider value={[articles, setArticles, removeArticle]}>{children}</ArticlesContext.Provider>;
 };
 export default ArticlesContextProvider;
