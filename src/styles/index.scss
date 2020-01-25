@@ -57,6 +57,21 @@ a {
       color: rgba(255, 255, 255, 0.6);
     }
   }
+  &__btn {
+    background: none;
+    display: inline-block;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 15px;
+    border-radius: 3px;
+    transition: 0.3s;
+    &:hover {
+      border: 2px solid rgba(255, 255, 255, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+  }
 }
 
 .link {
