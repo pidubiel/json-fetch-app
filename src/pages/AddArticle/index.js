@@ -5,10 +5,13 @@ import { ArticlesContext } from '../../contexts/ArticlesContext.js';
 const AddArticle = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const { addArticle } = useContext(ArticlesContext);
+  const { articles, addArticle } = useContext(ArticlesContext);
   const handleSubmit = e => {
     e.preventDefault();
-    addArticle(title, content);
+    const newArticleId = articles.reduce((max, article) => (article.id > max ? article.id : max), articles[0].id) + 1;
+    if (title !== '' && content !== '') {
+      addArticle(title, content, newArticleId);
+    }
     setTitle('');
     setContent('');
   };
@@ -31,7 +34,7 @@ const AddArticle = () => {
             </label>
             <textarea value={content} onChange={e => setContent(e.target.value)} className='article-form__textarea' id='body' />
           </div>
-          <input type='submit' value='Add article' />
+          <input className='article-form__submit' type='submit' value='Add article' />
         </form>
       </div>
     </div>
