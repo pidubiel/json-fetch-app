@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ArticlesContext } from '../../contexts/ArticlesContext.js';
 
 const SingleArticle = ({ id, title, body }) => {
-  const [articles, setArticles, removeArticle] = useContext(ArticlesContext);
+  const { removeArticle } = useContext(ArticlesContext);
   return (
     <div className='articles__item'>
       <h1>{title}</h1>

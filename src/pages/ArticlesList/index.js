@@ -5,7 +5,8 @@ import SingleArticle from './SingleArticle';
 import axios from 'axios';
 
 const ArticlesList = () => {
-  const [articles, setArticles, removeArticle] = useContext(ArticlesContext);
+  const { articles, setArticles } = useContext(ArticlesContext);
+
   const [error, setError] = useState(null);
   const fetchArticles = () => {
     axios
@@ -15,7 +16,7 @@ const ArticlesList = () => {
   };
 
   useEffect(() => {
-    if (articles.length == 0) {
+    if (articles && articles.length == 0) {
       fetchArticles();
     }
   }, []);

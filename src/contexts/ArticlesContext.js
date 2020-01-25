@@ -12,6 +12,6 @@ const ArticlesContextProvider = ({ children }) => {
     setArticles(articles.filter(article => article.id !== id));
   };
 
-  return <ArticlesContext.Provider value={[articles, setArticles, removeArticle]}>{children}</ArticlesContext.Provider>;
+  return <ArticlesContext.Provider value={{ articles, setArticles, addArticle, removeArticle }}>{children}</ArticlesContext.Provider>;
 };
 export default ArticlesContextProvider;

@@ -143,3 +143,10 @@ table {
 *:after {
   box-sizing: border-box;
 }
+
+input,
+label,
+textarea {
+  display: block;
+  width: 100%;
+}

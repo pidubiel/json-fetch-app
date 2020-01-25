@@ -13,6 +13,20 @@ a {
   color: #fff;
 }
 
+input[type='text'],
+textarea {
+  padding: 10px;
+  background: none;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 200;
+  outline: none;
+  &:focus {
+    border: 3px solid rgba(255, 255, 255, 1);
+  }
+}
+
 .home {
   display: flex;
   width: 100%;
@@ -71,6 +85,29 @@ a {
       border: 2px solid rgba(255, 255, 255, 1);
       color: rgba(255, 255, 255, 1);
     }
+  }
+}
+
+.form-wrapper {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  height: 70vh;
+}
+
+.article-form {
+  width: 100%;
+  margin: auto;
+  &__group {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  &__label {
+    margin-bottom: 6px;
+    font-weight: 800;
+  }
+  &__textarea {
+    min-height: 300px;
   }
 }
 
